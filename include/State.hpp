@@ -1,7 +1,7 @@
 #pragma once
 
-struct State { // Definimos las variables de estado del sistema
-    double x; 
+struct State { // Definimos las variables de estado del pendulo
+    double x;   
     double x_dot;
 
     double theta;
