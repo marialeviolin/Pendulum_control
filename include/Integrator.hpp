@@ -6,4 +6,4 @@
 
 // Avanza el estado del pendulo en un paso de tiempo dt usando el método de integración de Runge-Kutta de cuarto orden
 
-State rk4Step
+State rk4Step(const PendulumModel& model, const State& state, double force, double dt);

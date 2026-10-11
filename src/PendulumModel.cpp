@@ -12,7 +12,7 @@ PendulumModel::PendulumModel(){
 
 State PendulumModel::derivatives(const State& state, double force) const{
 	// state.theta es phi (desviación de la vertical). El ángulo real del informe es pi + phi
-	const double pi = std::acos(-1);
+	const double pi = std::acos(-1.0);
 	const double theta = pi + state.theta;
 	const double s = std::sin(theta);
 	const double c = std::cos(theta);

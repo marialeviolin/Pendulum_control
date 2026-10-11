@@ -1,7 +1,10 @@
 #include <iostream>
+#include <fstream>
+#include <cmath>
 
 #include "State.hpp"
 #include "PendulumModel.hpp"
+#include "Integrator.hpp"
 
 int main()
 {
@@ -12,14 +15,19 @@ int main()
     state.theta = 0.1;
     state.theta_dot = 0.0;
 
-    PendulumModel model;
+    const double dt = 0.001; //pasodel tiempo
+    const double t_final = 1.0;
+    const double force = 0.0;
+    const int n_steps= static_cast<int>(std::round(t_final/dt));
 
-    double force = 0.0;
-
-    State derivatives = model.derivatives(state, force);
-
-        std::cout << "x_ddot     = " << derivatives.x_dot << std::endl;
-        std::cout << "theta_ddot = " << derivatives.theta_dot << std::endl;
-    
+    std::ofstream file("results.csv");
+    file << "t,x,x_dot,theta,theta_dot\n";
+    for (int i = 0; i <= n_steps; ++i) {
+        double t = i * dt;
+        file << t << "," << state.x << "," << state.x_dot << "," << state.theta << "," << state.theta_dot << "\n";
+        state = rk4Step(PendulumModel(), state, force, dt);
+    }
+    file.close();
+    std::cout << "Simulation completed. Results saved to results.csv" << std::endl;
     return 0;
 }
