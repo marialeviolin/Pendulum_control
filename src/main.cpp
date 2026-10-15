@@ -5,6 +5,7 @@
 #include "State.hpp"
 #include "PendulumModel.hpp"
 #include "Integrator.hpp"
+#include "Ricatti.hpp"
 
 int main()
 {
