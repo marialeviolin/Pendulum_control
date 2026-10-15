@@ -9,7 +9,7 @@ class PendulumModel{
 		PendulumModel(); // Constructor de la clase PendulumModel
 		State derivatives(const State& state, double force) const; // Creamos la función derivatives que calcula las derivadas de las variables de estado del pendulo
 
-	private: // Deinimos variables físicas del pendulo. Estas son privadas para que no puedan ser modificadas desde fuera de la clase
+	private: // Definimos variables físicas del pendulo. Estas son privadas para que no puedan ser modificadas desde fuera de la clase
 		double M;
 		double m;
 		double b;
